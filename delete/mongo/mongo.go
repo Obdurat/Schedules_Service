@@ -40,5 +40,6 @@ func (r *Repository) Ping() {
 		logrus.Fatal("Mongo Database Unavailable")
 		panic(er)
 	}
+	logrus.Infof("MongoDB connection established")
 }
 
