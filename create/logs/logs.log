@@ -1,0 +1,15 @@
+{"level":"warning","msg":"Creating new repository","time":"2023-03-22T01:16:49-03:00"}
+{"level":"info","msg":"Repository Created","time":"2023-03-22T01:16:49-03:00"}
+{"level":"warning","msg":"Starting server...","time":"2023-03-22T01:16:49-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-22T01:16:49-03:00"}
+{"level":"info","msg":"Started on port 8080","time":"2023-03-22T01:16:49-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-22T01:16:54-03:00"}
+{"level":"error","msg":"Error validating Schedule on sulaTopHair: [{Date Date is required}]","time":"2023-03-22T01:16:54-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-22T01:16:56-03:00"}
+{"level":"error","msg":"Error validating Schedule on sulaTopHair: [{Date Date is required}]","time":"2023-03-22T01:16:56-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-22T01:16:59-03:00"}
+{"level":"error","msg":"Error validating Schedule on sulaTopHair: [{Date Date is required}]","time":"2023-03-22T01:16:59-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-22T01:17:06-03:00"}
+{"level":"error","msg":"Error validating Schedule on sulaTopHair: [{Date Date is required}]","time":"2023-03-22T01:17:06-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-22T01:17:17-03:00"}
+{"level":"error","msg":"Error validating Schedule on sulaTopHair: [{Price Price is required} {Date Date is required}]","time":"2023-03-22T01:17:17-03:00"}
