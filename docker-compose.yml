@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  create:  
+    build: ./create
+    container_name: schedules-create
+    tty: true
+    stdin_open: true
+    ports:
+      - 8080:8080
+      # Nota: Todos os valores estão ultilizando as variaveis do .env desta pasta
+    env_file:
+      - .env
+  delete:  
+    build: ./delete
+    container_name: schedules-delete
+    tty: true
+    stdin_open: true
+    ports:
+      - 8081:8080
+      # Nota: Todos os valores estão ultilizando as variaveis do .env desta pasta
+    env_file:
+      - .env
+  get-all:  
+    build: ./get-all
+    container_name: schedules-getall
+    tty: true
+    stdin_open: true
+    ports:
+      - 8082:8080
+      # Nota: Todos os valores estão ultilizando as variaveis do .env desta pasta
+    env_file:
+      - .env
+  update:  
+    build: ./update
+    container_name: schedules-update
+    tty: true
+    stdin_open: true
+    ports:
+      - 8083:8080
+      # Nota: Todos os valores estão ultilizando as variaveis do .env desta pasta
+    env_file:
+      - .env
+networks:
+  default:
+    name: Hair_Salon_Schedules
