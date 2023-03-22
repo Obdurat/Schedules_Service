@@ -18,14 +18,14 @@ type Repository struct {
 }
 
 func New() *Repository {
-	logrus.Warn("Creating new repository")
+	logrus.Warnf("Instantiating  repository")
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 	options := options.Client().ApplyURI(os.Getenv("MONGODB_URI"))
 	client, err := mongo.Connect(ctx, options); if err != nil {
-		logrus.Fatal(err)
+		logrus.Fatalf("%v", err)
 		panic(err)
 	}
-	defer logrus.Info("Repository Created")
+	defer logrus.Infof("Repository instance Created")
 	return &Repository{
 		Client: client,
 		Ctx: ctx,
@@ -40,5 +40,6 @@ func (r *Repository) Ping() {
 		logrus.Fatal("Mongo Database Unavailable")
 		panic(er)
 	}
+	logrus.Infof("MongoDB connection established")
 }
 
