@@ -6,9 +6,10 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-var _ = logs.Init()
+var file = logs.Init()
 
 func main() {
+	defer file.Close()
 	r := handlers.Router()
 	handlers.Repo.Ping()
 	r.POST("/schedules/:company", handlers.CreateSchedule)
