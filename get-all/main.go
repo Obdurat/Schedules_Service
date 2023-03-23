@@ -13,6 +13,7 @@ func main() {
 	handlers.Repo.Ping()
 	r := handlers.Router()
 	r.GET("/schedules/:company", handlers.GetSchedules)
+	r.StaticFile("/logs", "./logs/logs.log")
 	if err := r.Run(":8080"); err != nil {
 		logrus.Fatalf("Failed to start server: %v", err)
 	}
