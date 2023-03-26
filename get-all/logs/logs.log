@@ -13,3 +13,14 @@
 {"level":"warning","msg":"Reading Schedules on sulaTopHair","time":"2023-03-22T20:19:00-03:00"}
 {"level":"info","msg":"UpdateSchedule took 27.843µs","time":"2023-03-22T20:19:00-03:00"}
 {"level":"info","msg":"Query Complete successfully on sulaTopHair","time":"2023-03-22T20:19:00-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-26T12:11:23-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-26T12:11:23-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-26T12:11:23-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-26T12:11:23-03:00"}
+{"level":"warning","msg":"Reading Schedules on sulaTopHair","time":"2023-03-26T12:11:29-03:00"}
+{"level":"info","msg":"UpdateSchedule took 171.742µs","time":"2023-03-26T12:11:29-03:00"}
+{"level":"info","msg":"Query Complete successfully on sulaTopHair","time":"2023-03-26T12:11:29-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-26T12:11:54-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-26T12:11:54-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-26T12:11:54-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-26T12:11:54-03:00"}
