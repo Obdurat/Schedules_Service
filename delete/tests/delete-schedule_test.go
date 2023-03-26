@@ -54,7 +54,7 @@ func deleteScheduleTest(id string, want_status int, want_return string, mode str
 	repository.Instance = new(mode)
 	w := httptest.NewRecorder()
 	c, _ := Prepare(w)
-	req, err := http.NewRequest("DELETE", "/schedules/any/any" + id, nil); if err != nil {
+	req, err := http.NewRequest("DELETE", "/schedules/any/any", nil); if err != nil {
 		return err
 	}
 	c.AddParam("id", id)
