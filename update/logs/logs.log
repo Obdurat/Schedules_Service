@@ -1,0 +1,13 @@
+{"level":"warning","msg":"Service Starting...","time":"2023-03-26T13:45:14-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-26T13:45:14-03:00"}
+{"level":"fatal","msg":"Mongo Database Unavailable","time":"2023-03-26T13:45:16-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-26T13:46:21-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-26T13:46:21-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-26T13:46:21-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-26T13:46:21-03:00"}
+{"level":"warning","msg":"Updating Schedule on sulaTopHair 641b551ad15248336f0aad6a","time":"2023-03-26T13:47:33-03:00"}
+{"level":"info","msg":"UpdateSchedule took 39.395µs","time":"2023-03-26T13:47:33-03:00"}
+{"level":"info","msg":"Entry Updated on sulaTopHair 641b551ad15248336f0aad6a","time":"2023-03-26T13:47:33-03:00"}
+{"level":"warning","msg":"Updating Schedule on sulaTopHair 641b551ad15248336f0aad6a","time":"2023-03-26T13:47:47-03:00"}
+{"level":"info","msg":"UpdateSchedule took 18.936µs","time":"2023-03-26T13:47:47-03:00"}
+{"level":"info","msg":"Entry Updated on sulaTopHair 641b551ad15248336f0aad6a","time":"2023-03-26T13:47:47-03:00"}

@@ -7,14 +7,12 @@ import (
 
 	entity "github.com/Obdurat/Schedules/entity"
 	logs "github.com/Obdurat/Schedules/logs"
-	mongo "github.com/Obdurat/Schedules/mongo"
+	"github.com/Obdurat/Schedules/repository"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
-
-var Repo = mongo.New()
 
 func UpdateSchedule(c *gin.Context) {
 	cn, id := c.Param("company"), c.Param("id")
@@ -33,7 +31,7 @@ func UpdateSchedule(c *gin.Context) {
 		logrus.Errorf("Error validating Id on %v %v: %v", cn, id, err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()}); return
 	}
-	col := Repo.Client.Database(cn).Collection("schedules")
+	col := repository.Instance.Database(cn)
 	e := col.FindOneAndUpdate(ctx, bson.M{"_id": obj_id}, bson.D{{Key: "$set", Value: schedule}}); if e.Err() != nil {
 		logrus.Errorf("Error Updating schedule on MongoDB: %v %v: %v", cn, id, e.Err().Error())
 		c.JSON(http.StatusBadRequest, gin.H{"error": e.Err().Error()}); return
