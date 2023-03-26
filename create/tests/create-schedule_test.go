@@ -38,7 +38,7 @@ var tests = []testStruct{
 			"finished": false
 		}`,
 		WantStatus: 400,
-		WantReturn: `{"error":"inducedError"}`,
+		WantReturn: `{"error":"MOCK ERROR: InsertOne"}`,
 		Mode: "MONGO_FAIL",
 	},
 	{
@@ -85,7 +85,7 @@ func createScheduleTest(body string, want_status int, want_return string, mode s
 	mongo.Repo = new(mode)
 	w := httptest.NewRecorder()
 	c, _ := Prepare(w)
-	req, err := http.NewRequest("POST", "/schedules/sulaTopHair", strings.NewReader(string(body))); if err != nil {
+	req, err := http.NewRequest("POST", "/schedules/any", strings.NewReader(string(body))); if err != nil {
 		return err
 	}
 	c.Request = req
