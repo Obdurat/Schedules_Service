@@ -14,7 +14,7 @@ func main() {
 	defer file.Close()
 	r := handlers.Router()
 	repository.Instance.Ping()
-	defer repository.Instance.Close()
+	defer repository.Instance.Disconnect()
 	r.POST("/schedules/:company", handlers.CreateSchedule)
 	r.StaticFile("/logs", "./logs/logs.log")
 	logrus.Info("Service Ready")

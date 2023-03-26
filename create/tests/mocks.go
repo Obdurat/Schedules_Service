@@ -27,7 +27,7 @@ func (m *MockRepoFail) Collection(cn string) repository.ICollection {
 	return &MockCollectionFail{}
 }
 
-func (m *MockRepoFail) Close() {
+func (m *MockRepoFail) Disconnect() {
 	return
 }
 
@@ -49,7 +49,7 @@ func (m *MockRepoSuccess) Collection(cn string) repository.ICollection {
 	return &MockCollectionSuccess{}
 }
 
-func (m *MockRepoSuccess) Close() {
+func (m *MockRepoSuccess) Disconnect() {
 	return
 }
 

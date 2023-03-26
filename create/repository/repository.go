@@ -23,7 +23,7 @@ type ICollection interface {
 type IRepository interface {
 	Ping()
 	Collection(cn string) ICollection
-	Close()
+	Disconnect()
 }
 
 func new() IRepository {
@@ -55,7 +55,7 @@ func (r *Repository) Collection(cn string) ICollection {
 	return col
 }
 
-func (r *Repository) Close() {
+func (r *Repository) Disconnect() {
 	r.CtxCancel()
 }
 
