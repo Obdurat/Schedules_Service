@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	repo "github.com/Obdurat/Schedules/mongo"
+	repository "github.com/Obdurat/Schedules/repository"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -23,7 +23,7 @@ func (m *MockRepoFail) Ping() {
 	return;
 }
 
-func (m *MockRepoFail) Collection(cn string) repo.ICollection {
+func (m *MockRepoFail) Collection(cn string) repository.ICollection {
 	return &MockCollectionFail{}
 }
 
@@ -45,7 +45,7 @@ func (m *MockRepoSuccess) Ping() {
 	return;
 }
 
-func (m *MockRepoSuccess) Collection(cn string) repo.ICollection {
+func (m *MockRepoSuccess) Collection(cn string) repository.ICollection {
 	return &MockCollectionSuccess{}
 }
 
@@ -55,7 +55,7 @@ func (m *MockRepoSuccess) Close() {
 
 // INSTANCE BASED ON MODE --------------------------------------------------------------------
 
-func new(mode string) repo.IRepository {
+func new(mode string) repository.IRepository {
 	if mode == "MONGO_SUCCESS" {
 		return &MockRepoSuccess{}
 	}

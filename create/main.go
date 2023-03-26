@@ -2,8 +2,8 @@ package main
 
 import (
 	handlers "github.com/Obdurat/Schedules/handlers"
-	"github.com/Obdurat/Schedules/logs"
-	"github.com/Obdurat/Schedules/mongo"
+	logs "github.com/Obdurat/Schedules/logs"
+	repository "github.com/Obdurat/Schedules/repository"
 	"github.com/sirupsen/logrus"
 )
 
@@ -13,8 +13,8 @@ func main() {
 	logrus.Warnf("Service Starting...")
 	defer file.Close()
 	r := handlers.Router()
-	mongo.Repo.Ping()
-	defer mongo.Repo.Close()
+	repository.Instance.Ping()
+	defer repository.Instance.Close()
 	r.POST("/schedules/:company", handlers.CreateSchedule)
 	r.StaticFile("/logs", "./logs/logs.log")
 	logrus.Info("Service Ready")

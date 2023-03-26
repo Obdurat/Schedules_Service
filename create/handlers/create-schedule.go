@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/Obdurat/Schedules/entity"
-	"github.com/Obdurat/Schedules/logs"
-	"github.com/Obdurat/Schedules/mongo"
+	entity "github.com/Obdurat/Schedules/entity"
+	logs "github.com/Obdurat/Schedules/logs"
+	repository "github.com/Obdurat/Schedules/repository"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 )
@@ -15,7 +15,7 @@ import (
 
 
 func CreateSchedule(c *gin.Context) {
-	repo := mongo.Repo
+	repo := repository.Instance
 	defer logs.Elapsed("CreateSchedule")()
 	cn := c.Param("company")
 	logrus.Warnf("Creating Schedule on %v", cn)

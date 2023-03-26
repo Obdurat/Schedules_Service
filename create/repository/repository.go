@@ -1,4 +1,4 @@
-package mongo
+package repository
 
 import (
 	"context"
@@ -59,4 +59,4 @@ func (r *Repository) Close() {
 	r.CtxCancel()
 }
 
-var Repo = new()
+var Instance = new()

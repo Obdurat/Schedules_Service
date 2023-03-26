@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Obdurat/Schedules/handlers"
-	"github.com/Obdurat/Schedules/mongo"
+	handlers "github.com/Obdurat/Schedules/handlers"
+	repository "github.com/Obdurat/Schedules/repository"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 )
@@ -82,7 +82,7 @@ var tests = []testStruct{
 }
 
 func createScheduleTest(body string, want_status int, want_return string, mode string) (error) {
-	mongo.Repo = new(mode)
+	repository.Instance = new(mode)
 	w := httptest.NewRecorder()
 	c, _ := Prepare(w)
 	req, err := http.NewRequest("POST", "/schedules/any", strings.NewReader(string(body))); if err != nil {
