@@ -1,4 +1,4 @@
-package mongo
+package repository
 
 import (
 	"context"
@@ -17,15 +17,23 @@ type Repository struct {
 	ClientOptions *options.ClientOptions
 }
 
-func New() *Repository {
-	logrus.Warn("Creating new repository")
+type ICollection interface {
+	FindOneAndDelete(ctx context.Context, document interface{}, opts ...*options.FindOneAndDeleteOptions) *mongo.SingleResult
+}
+
+type IRepository interface {
+	Ping()
+	Database(cn string) ICollection
+	Disconnect()
+}
+
+func new() IRepository {
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 	options := options.Client().ApplyURI(os.Getenv("MONGODB_URI"))
 	client, err := mongo.Connect(ctx, options); if err != nil {
 		logrus.Fatal(err)
 		panic(err)
 	}
-	defer logrus.Info("Repository Created")
 	return &Repository{
 		Client: client,
 		Ctx: ctx,
@@ -42,4 +50,15 @@ func (r *Repository) Ping() {
 	}
 	logrus.Infof("MongoDB connection established")
 }
+
+func (r *Repository) Database(cn string) ICollection {
+	col := r.Client.Database(cn).Collection("schedules")
+	return col
+}
+
+func (r *Repository) Disconnect() {
+	r.CtxCancel()
+}
+
+var Instance = new()
 
