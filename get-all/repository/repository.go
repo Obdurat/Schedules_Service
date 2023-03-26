@@ -27,7 +27,7 @@ type IRepository interface {
 	Disconnect()
 }
 
-func new() *Repository {
+func new() IRepository {
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 	options := options.Client().ApplyURI(os.Getenv("MONGODB_URI"))
 	client, err := mongo.Connect(ctx, options); if err != nil {
