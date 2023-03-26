@@ -12,9 +12,11 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-var Repo = mongo.New()
+
 
 func CreateSchedule(c *gin.Context) {
+	repo := mongo.Repo
+	defer logs.Elapsed("CreateSchedule")()
 	cn := c.Param("company")
 	logrus.Warnf("Creating Schedule on %v", cn)
 	var schedule entity.Schedule
@@ -22,16 +24,15 @@ func CreateSchedule(c *gin.Context) {
 		logrus.Errorf("Error decoding Schedule %v: %v", cn, err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()}); return
 	}
-	if ve := schedule.Validate(); ve != nil {
-		logrus.Errorf("Error validating Schedule on %v: %v", cn, ve)
-		c.JSON(http.StatusBadRequest, gin.H{"error": ve}); return
+	if err := schedule.Validate(); err != nil {
+		logrus.Errorf("Error validating Schedule on %v: %v", cn, err)
+		c.JSON(http.StatusBadRequest, gin.H{"error": err}); return
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second); defer cancel()
-	col := Repo.Client.Database(cn).Collection("schedules")
+	col := repo.Collection(cn)
 	if _, err := col.InsertOne(ctx, schedule); err != nil {
 		logrus.Errorf("Error Inserting schedule to MongoDB: %v %v", cn, err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()}); return
 	}
-	defer logs.Elapsed("CreateSchedule")()
 	c.JSON(http.StatusCreated, gin.H{"message": "Created sucessfully"}); return
 }

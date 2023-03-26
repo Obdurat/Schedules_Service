@@ -2,7 +2,6 @@ package mongo
 
 import (
 	"context"
-	"os"
 	"time"
 
 	"github.com/sirupsen/logrus"
@@ -17,15 +16,23 @@ type Repository struct {
 	ClientOptions *options.ClientOptions
 }
 
-func New() *Repository {
-	logrus.Warnf("Instantiating  repository")
+type ICollection interface {
+	InsertOne(ctx context.Context, document interface{}, opts ...*options.InsertOneOptions) (*mongo.InsertOneResult, error)
+}
+
+type IRepository interface {
+	Ping()
+	Collection(cn string) ICollection
+	Close()
+}
+
+func new() IRepository {
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
-	options := options.Client().ApplyURI(os.Getenv("MONGODB_URI"))
+	options := options.Client().ApplyURI("mongodb://localhost:27017")
 	client, err := mongo.Connect(ctx, options); if err != nil {
 		logrus.Fatalf("%v", err)
 		panic(err)
 	}
-	defer logrus.Infof("Repository instance Created")
 	return &Repository{
 		Client: client,
 		Ctx: ctx,
@@ -43,3 +50,13 @@ func (r *Repository) Ping() {
 	logrus.Infof("MongoDB connection established")
 }
 
+func (r *Repository) Collection(cn string) ICollection {
+	col := r.Client.Database(cn).Collection("schedules")
+	return col
+}
+
+func (r *Repository) Close() {
+	r.CtxCancel()
+}
+
+var Repo = new()
