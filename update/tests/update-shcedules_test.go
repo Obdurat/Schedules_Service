@@ -5,6 +5,7 @@ import (
 	"io"
 	"net/http"
 	"net/http/httptest"
+	"strings"
 	"testing"
 
 	handlers "github.com/Obdurat/Schedules/handlers"
@@ -20,6 +21,7 @@ func Prepare(w *httptest.ResponseRecorder) (*gin.Context, *gin.Engine) {
 
 type testStruct struct {
 	Name string
+	ID string
 	Body string
 	WantStatus int
 	WantReturn string
@@ -29,6 +31,7 @@ type testStruct struct {
 var tests = []testStruct{
 	{
 		Name: "MONGO ERROR",
+		ID: "641f44e939bddf7b7f8b756f",
 		Body: `{
 			"client_id": "Babayeteu",
 			"service": "641afc1ff6872fffc607baf6",
@@ -37,11 +40,12 @@ var tests = []testStruct{
 			"finished": false
 		}`,
 		WantStatus: 400,
-		WantReturn: `{"error":"MOCK ERROR: InsertOne"}`,
+		WantReturn: `{"error":"MOCK ERROR: FindOneAndUpdate"}`,
 		Mode: "MONGO_FAIL",
 	},
 	{
 		Name: "JSON VALIDATION",
+		ID: "641f44e939bddf7b7f8b756f",
 		Body: `{
 			"client_id": "Babayeteu",
 			"service": "641afc1ff6872fffc607baf6",
@@ -54,6 +58,7 @@ var tests = []testStruct{
 	},
 	{
 		Name: "MALFORMED JSON",
+		ID: "641f44e939bddf7b7f8b756f",
 		Body: `{
 			"client_id": "Babayeteu",
 			"service": "641afc1ff6872fffc607baf6",
@@ -67,6 +72,7 @@ var tests = []testStruct{
 	},
 	{
 		Name: "INSERT SUCCESS",
+		ID: "641f44e939bddf7b7f8b756f",
 		Body: `{
 			"client_id": "Babayeteu",
 			"service": "641afc1ff6872fffc607baf6",
@@ -75,18 +81,19 @@ var tests = []testStruct{
 			"finished": false
 		}`,
 		WantStatus: 201,
-		WantReturn: `{"message":"Created sucessfully"}`,
+		WantReturn: `{"message":"Entry updated sucessfully"}`,
 		Mode: "MONGO_SUCCESS",
 	},
 }
 
-func getAllScheduleTest(body string, want_status int, want_return string, mode string) (error) {
+func getAllScheduleTest(id string, body string, want_status int, want_return string, mode string) (error) {
 	repository.Instance = new(mode)
 	w := httptest.NewRecorder()
 	c, _ := Prepare(w)
-	req, err := http.NewRequest("DELETE", "/schedules/any/any", nil); if err != nil {
+	req, err := http.NewRequest("PUT", "/schedules/any/any", strings.NewReader(string(body))); if err != nil {
 		return err
 	}
+	c.AddParam("id", id)
 	c.Request = req
 	handlers.UpdateSchedule(c)
 	if want_status != w.Code {
@@ -101,7 +108,7 @@ func getAllScheduleTest(body string, want_status int, want_return string, mode s
 func Test_Update_Schedule(t *testing.T) {
 	logrus.SetOutput(io.Discard)
 	for _, test := range tests {
-		if err := getAllScheduleTest(test.Body, test.WantStatus, test.WantReturn, test.Mode); err != nil {
+		if err := getAllScheduleTest(test.ID, test.Body, test.WantStatus, test.WantReturn, test.Mode); err != nil {
 			fmt.Printf("%s --- FAILED: %v\n", test.Name, err.Error())
 			t.Fail()
 			continue
