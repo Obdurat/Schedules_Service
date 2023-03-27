@@ -15,6 +15,7 @@ import (
 )
 
 func UpdateSchedule(c *gin.Context) {
+	defer logs.Elapsed("UpdateSchedule")()
 	cn, id := c.Param("company"), c.Param("id")
 	logrus.Warnf("Updating Schedule on %v %v", cn, id)
 	var schedule entity.Schedule
@@ -37,6 +38,5 @@ func UpdateSchedule(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": e.Err().Error()}); return
 	}
 	defer logrus.Infof("Entry Updated on %v %v", cn, id)
-	defer logs.Elapsed("UpdateSchedule")()
 	c.JSON(http.StatusCreated, gin.H{"message": "Entry updated sucessfully"}); return
 }
