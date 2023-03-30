@@ -23,6 +23,8 @@ func vError(fe validator.FieldError) string {
 	switch fe.Tag() {
 	case "required":
 		return fe.Field() + " is required"
+	case "datetime":
+		return fe.Field() + " is not a valid datetime"
 	default:
 		return fe.Field() + " is required"
 	}

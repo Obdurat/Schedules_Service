@@ -12,8 +12,6 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-
-
 func CreateSchedule(c *gin.Context) {
 	repo := repository.Instance
 	defer logs.Elapsed("CreateSchedule")()
@@ -24,6 +22,10 @@ func CreateSchedule(c *gin.Context) {
 		logrus.Errorf("Error decoding Schedule %v: %v", cn, err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()}); return
 	}
+	if _, err := time.Parse(time.RFC3339, schedule.Date); err != nil {
+		logrus.Errorf("Wrong date format %v: %v", cn, err)
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Wrong date format"}); return
+	}	
 	if err := schedule.Validate(); err != nil {
 		logrus.Errorf("Error validating Schedule on %v: %v", cn, err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": err}); return
@@ -31,7 +33,7 @@ func CreateSchedule(c *gin.Context) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second); defer cancel()
 	col := repo.Collection(cn)
 	if _, err := col.InsertOne(ctx, schedule); err != nil {
-		logrus.Errorf("Error Inserting schedule to MongoDB: %v %v", cn, err)
+		logrus.Errorf("Error Inserting schedule to MongoDB: %v %v", cn, err); cancel()
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()}); return
 	}
 	c.JSON(http.StatusCreated, gin.H{"message": "Created sucessfully"}); return

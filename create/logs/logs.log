@@ -1,0 +1,97 @@
+{"level":"warning","msg":"Service Starting...","time":"2023-03-30T17:34:53-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-30T17:34:53-03:00"}
+{"level":"fatal","msg":"Mongo Database Unavailable","time":"2023-03-30T17:34:55-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-30T17:35:07-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-30T17:35:07-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-30T17:35:07-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-30T17:35:07-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T17:41:40-03:00"}
+{"level":"info","msg":"CreateSchedule took 361.882µs","time":"2023-03-30T17:41:40-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-30T17:42:31-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-30T17:42:31-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-30T17:42:31-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-30T17:42:31-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T17:42:35-03:00"}
+{"level":"info","msg":"CreateSchedule took 339.11µs","time":"2023-03-30T17:42:35-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-30T17:52:15-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-30T17:52:15-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-30T17:52:15-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-30T17:52:15-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T17:52:20-03:00"}
+{"level":"error","msg":"Error validating Schedule on sulaTopHair: [{Date Date is not a valid datetime}]","time":"2023-03-30T17:52:20-03:00"}
+{"level":"info","msg":"CreateSchedule took 458.497µs","time":"2023-03-30T17:52:20-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-30T17:52:51-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-30T17:52:51-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-30T17:52:51-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-30T17:52:51-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T17:52:55-03:00"}
+{"level":"error","msg":"Error validating Schedule on sulaTopHair: [{Date Date is not a valid datetime}]","time":"2023-03-30T17:52:55-03:00"}
+{"level":"info","msg":"CreateSchedule took 446.886µs","time":"2023-03-30T17:52:55-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-30T17:58:46-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-30T17:58:46-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-30T17:58:46-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-30T17:58:46-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T17:58:52-03:00"}
+{"level":"error","msg":"Error decoding Schedule sulaTopHair: parsing time \"'2012-07-04T18:10:00.000+09:00'\" as \"2006-01-02T15:04:05Z07:00\": cannot parse \"'2012-07-04T18:10:00.000+09:00'\" as \"2006\"","time":"2023-03-30T17:58:52-03:00"}
+{"level":"info","msg":"CreateSchedule took 242.109µs","time":"2023-03-30T17:58:52-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T18:03:41-03:00"}
+{"level":"info","msg":"CreateSchedule took 256.623µs","time":"2023-03-30T18:03:41-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-30T18:03:53-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-30T18:03:53-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-30T18:03:53-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-30T18:03:53-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T18:03:58-03:00"}
+{"level":"info","msg":"CreateSchedule took 355µs","time":"2023-03-30T18:03:58-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T18:04:05-03:00"}
+{"level":"info","msg":"CreateSchedule took 299.866µs","time":"2023-03-30T18:04:05-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T18:04:06-03:00"}
+{"level":"info","msg":"CreateSchedule took 296.94µs","time":"2023-03-30T18:04:06-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-30T18:05:40-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-30T18:05:40-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-30T18:05:40-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-30T18:05:40-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T18:05:46-03:00"}
+{"level":"error","msg":"Error validating Schedule on sulaTopHair: [{Date Date is not a valid datetime}]","time":"2023-03-30T18:05:46-03:00"}
+{"level":"info","msg":"CreateSchedule took 432.037µs","time":"2023-03-30T18:05:46-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-30T18:16:53-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-30T18:16:53-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-30T18:16:53-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-30T18:16:53-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T18:16:59-03:00"}
+{"level":"error","msg":"Error validating Schedule on sulaTopHair: [{Date Date is not a valid datetime}]","time":"2023-03-30T18:16:59-03:00"}
+{"level":"info","msg":"CreateSchedule took 501.17µs","time":"2023-03-30T18:16:59-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-30T18:17:40-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-30T18:17:40-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-30T18:17:40-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-30T18:17:40-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T18:17:44-03:00"}
+{"level":"info","msg":"CreateSchedule took 187.967454ms","time":"2023-03-30T18:17:44-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T18:18:51-03:00"}
+{"level":"info","msg":"CreateSchedule took 1.344147ms","time":"2023-03-30T18:18:51-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-30T18:25:52-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-30T18:25:52-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-30T18:25:52-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-30T18:25:52-03:00"}
+{"level":"fatal","msg":"Failed to start server: listen tcp :8080: bind: address already in use","time":"2023-03-30T18:25:52-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-30T18:30:16-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-30T18:30:16-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-30T18:30:16-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-30T18:30:16-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T18:30:20-03:00"}
+{"level":"info","msg":"CreateSchedule took 336.334µs","time":"2023-03-30T18:30:20-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-30T18:31:22-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-30T18:31:22-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-30T18:31:22-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-30T18:31:22-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T18:31:26-03:00"}
+{"level":"error","msg":"Wrong date format sulaTopHair: parsing time \"20\" as \"2006-01-02T15:04:05Z07:00\": cannot parse \"20\" as \"2006\"","time":"2023-03-30T18:31:26-03:00"}
+{"level":"info","msg":"CreateSchedule took 431.737µs","time":"2023-03-30T18:31:26-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T18:32:42-03:00"}
+{"level":"info","msg":"CreateSchedule took 1.509073ms","time":"2023-03-30T18:32:42-03:00"}
+{"level":"warning","msg":"Service Starting...","time":"2023-03-30T18:33:52-03:00"}
+{"level":"warning","msg":"Pinging MongoDB ...","time":"2023-03-30T18:33:52-03:00"}
+{"level":"info","msg":"MongoDB connection established","time":"2023-03-30T18:33:52-03:00"}
+{"level":"info","msg":"Service Ready","time":"2023-03-30T18:33:52-03:00"}
+{"level":"warning","msg":"Creating Schedule on sulaTopHair","time":"2023-03-30T18:33:55-03:00"}
+{"level":"error","msg":"Wrong date format sulaTopHair: parsing time \"2023-03-\" as \"2006-01-02T15:04:05Z07:00\": cannot parse \"\" as \"02\"","time":"2023-03-30T18:33:55-03:00"}
+{"level":"info","msg":"CreateSchedule took 373.682µs","time":"2023-03-30T18:33:55-03:00"}
