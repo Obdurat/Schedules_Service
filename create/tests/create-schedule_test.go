@@ -34,7 +34,7 @@ var tests = []testStruct{
 			"client_id": "Babayeteu",
 			"service": "641afc1ff6872fffc607baf6",
 			"price": 100,
-			"date": "2024",
+			"date": "2023-03-30T21:32:22.010Z",
 			"finished": false
 		}`,
 		WantStatus: 400,
@@ -59,7 +59,7 @@ var tests = []testStruct{
 			"client_id": "Babayeteu",
 			"service": "641afc1ff6872fffc607baf6",
 			"price": 100,
-			"date": "2024"
+			"date": "2023-03-30T21:32:22.010Z"
 			"finished": false
 		}`,
 		WantStatus: 400,
@@ -72,11 +72,24 @@ var tests = []testStruct{
 			"client_id": "Babayeteu",
 			"service": "641afc1ff6872fffc607baf6",
 			"price": 100,
-			"date": "2024",
+			"date": "2023-03-30T21:32:22.010Z",
 			"finished": false
 		}`,
 		WantStatus: 201,
 		WantReturn: `{"message":"Created sucessfully"}`,
+		Mode: "MONGO_SUCCESS",
+	},
+	{
+		Name: "WRONG DATE FORMAT",
+		Body: `{
+			"client_id": "Babayeteu",
+			"service": "641afc1ff6872fffc607baf6",
+			"price": 100,
+			"date": "2023",
+			"finished": false
+		}`,
+		WantStatus: 400,
+		WantReturn: `{"error":"Wrong date format"}`,
 		Mode: "MONGO_SUCCESS",
 	},
 }
