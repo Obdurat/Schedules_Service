@@ -62,5 +62,5 @@ func Proxy(c *gin.Context) {
 func main() {
 	r := gin.New()
 	r.Any("/*any", Proxy)
-	r.Run(":9090")
+	r.Run(":80")
 }
