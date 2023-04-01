@@ -32,6 +32,10 @@ func UpdateSchedule(c *gin.Context) {
 		logrus.Errorf("Error validating Id on %v %v: %v", cn, id, err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()}); return
 	}
+	if _, err := time.Parse(time.RFC3339, schedule.Date); err != nil {
+		logrus.Errorf("Wrong date format %v: %v", cn, err)
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Wrong date format"}); return
+	}
 	col := repository.Instance.Database(cn)
 	e := col.FindOneAndUpdate(ctx, bson.M{"_id": obj_id}, bson.D{{Key: "$set", Value: schedule}}); if e.Err() != nil {
 		logrus.Errorf("Error Updating schedule on MongoDB: %v %v: %v", cn, id, e.Err().Error())
